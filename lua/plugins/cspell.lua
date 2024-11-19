@@ -11,9 +11,13 @@ return {
 
     none_ls.setup({
       sources = {
-        cspell.diagnostics,
+        cspell.diagnostics.with({
+          diagnostics_postprocess = function(diagnostic)
+            diagnostic.severity = vim.diagnostic.severity["INFO"]
+          end,
+        }),
         cspell.code_actions,
       },
     })
-   end,
+  end,
 }
