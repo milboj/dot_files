@@ -8,9 +8,7 @@ vim.keymap.set({ "n", "v" }, "<space>f", function()
   Util.format({ force = true })
 end, { desc = "Format" })
 
-vim.keymap.set("n", "<space>b", function()
-  require("telescope.builtin").buffers({ sort_lastused = true, ignore_current_buffer = true })
-end, { desc = "Open buffers" })
+vim.keymap.set("n", "<space>b", "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>" , { desc = "Open buffers" })
 
 vim.keymap.set("n", "<leader>g]", function()
   if vim.wo.diff then
